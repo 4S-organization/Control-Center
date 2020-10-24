@@ -1,0 +1,15 @@
+C:\Users\clash\source\repos\Control-Center\bin\Debug\Control-Center.exe.config
+C:\Users\clash\source\repos\Control-Center\bin\Debug\Control-Center.exe
+C:\Users\clash\source\repos\Control-Center\bin\Debug\Control-Center.pdb
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.csprojAssemblyReference.cache
+C:\Users\clash\source\repos\Control-Center\obj\Debug\MainWindow.g.cs
+C:\Users\clash\source\repos\Control-Center\obj\Debug\App.g.cs
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center_MarkupCompile.cache
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center_MarkupCompile.lref
+C:\Users\clash\source\repos\Control-Center\obj\Debug\MainWindow.baml
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.g.resources
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control_Center.Properties.Resources.resources
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.csproj.GenerateResource.cache
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.csproj.CoreCompileInputs.cache
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.exe
+C:\Users\clash\source\repos\Control-Center\obj\Debug\Control-Center.pdb
