@@ -6,10 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Control_Center
+namespace ControlCenter
 {
     /// <summary>
-    /// Логика взаимодействия для App.xaml
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
