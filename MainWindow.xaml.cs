@@ -40,6 +40,15 @@ namespace ControlCenter
                 lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
             }
         }
+        private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Кнопка была нажата!");
+        }
+
+        private void OnClickButtonGraphics(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Кнопка была нажата!");
+        }
     }
 
     public class VisibilityToCheckedConverter : IValueConverter

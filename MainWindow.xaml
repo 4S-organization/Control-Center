@@ -6,14 +6,22 @@
         xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
         xmlns:local="clr-namespace:ControlCenter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <Window.Resources>
         <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
     </Window.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
-        <d3:Chart Name="plotter" >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="2*"/>
+		</Grid.RowDefinitions>
+        <d3:Chart Name="plotter" Grid.Column="2" Width="450" HorizontalAlignment="right" Margin="0, 0, 20, 0">
             <d3:Chart.Title>
-                <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0,5,0,5">Line graph legend sample</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="14" Margin="0,5,0,5">Line graph legend sample</TextBlock>
             </d3:Chart.Title>
             <d3:Chart.LegendContent>
                 <d3:LegendItemsPanel>
@@ -30,5 +38,17 @@
             </d3:Chart.LegendContent>
             <Grid Name="lines"/>
         </d3:Chart>
+		<StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="10, 0, 0 ,10">
+			<Button Name="ButtonPlanning" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
+				Click="OnClickButtonPlanning">
+				Запланировать полёт
+			</Button>
+		</StackPanel>
+		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="bottom" HorizontalAlignment="right" Margin="0, 0, 10 ,10">
+			<Button Name="ButtonGraphics" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
+				Click="OnClickButtonGraphics">
+				Точные графики
+			</Button>
+		</StackPanel>
     </Grid>
 </Window>
