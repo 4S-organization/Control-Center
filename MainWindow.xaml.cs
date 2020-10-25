@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InteractiveDataDisplay.WPF;
-
+using Microsoft.Maps.MapControl.WPF;
 
 namespace ControlCenter
 {
@@ -39,6 +39,7 @@ namespace ControlCenter
                 lg.StrokeThickness = 2;
                 lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
             }
+            addNewlabel();
         }
         private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
         {
@@ -48,6 +49,18 @@ namespace ControlCenter
         private void OnClickButtonGraphics(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Кнопка была нажата!");
+        }
+
+        private void addNewlabel()
+        {
+            MapPolyline polyline = new MapPolyline();
+            polyline.Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue);
+            polyline.StrokeThickness = 5;
+            polyline.Opacity = 0.7;
+            polyline.Locations = new LocationCollection() {
+                new Location(58.010259, 56.234195)};
+
+            RocketLocationMap.Children.Add(polyline);
         }
     }
 
