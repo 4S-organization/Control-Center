@@ -12,10 +12,10 @@
         <local:VisibilityToCheckedConverter x:Key="VisibilityToCheckedConverter"/>
     </Window.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="1*"/>
-			<ColumnDefinition Width="2*"/>
-		</Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
@@ -24,7 +24,7 @@
                ZoomLevel="11">
             <m:Pushpin Location="58.010259, 56.234195"></m:Pushpin>
         </m:Map>
-            <d3:Chart Name="plotter" Grid.Column="2" Width="450" HorizontalAlignment="right" Margin="0, 0, 20, 0">
+        <d3:Chart Name="plotter" Grid.Column="2" Width="450" HorizontalAlignment="right" Margin="0, 0, 20, 0">
             <d3:Chart.Title>
                 <TextBlock HorizontalAlignment="Center" FontSize="14" Margin="0,5,0,5">Line graph legend sample</TextBlock>
             </d3:Chart.Title>
@@ -43,17 +43,37 @@
             </d3:Chart.LegendContent>
             <Grid Name="lines"/>
         </d3:Chart>
-		<StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="10, 0, 0 ,10">
-			<Button Name="ButtonPlanning" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
+        <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="top" HorizontalAlignment="left" Orientation="Horizontal">
+            <Label x:Name="ConnectionStatus" FontSize="30" FontWeight="DemiBold" VerticalAlignment="Center">Статус подключения:</Label>
+            <Viewbox HorizontalAlignment="Right" VerticalAlignment="Center" Width="32" Height="32" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                <Rectangle Width="16" Height="16">
+                    <Rectangle.Fill>
+                        <DrawingBrush>
+                            <DrawingBrush.Drawing>
+                                <DrawingGroup>
+                                    <DrawingGroup.Children>
+                                        <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                                        <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M8.0001,5.1721L3.4571,0.6291 0.629099999999999,3.4571 5.1721,8.0001 0.629099999999999,12.5431 3.4571,15.3711 8.0001,10.8281 12.5431,15.3711 15.3711,12.5431 10.8281,8.0001 15.3711,3.4571 12.5431,0.6291z" />
+                                        <GeometryDrawing Brush="#FFA1260C" Geometry="F1M9.4141,8L13.9571,12.543 12.5431,13.957 8.0001,9.414 3.4571,13.957 2.0431,12.543 6.5861,8 2.0431,3.457 3.4571,2.043 8.0001,6.586 12.5431,2.043 13.9571,3.457z" />
+                                    </DrawingGroup.Children>
+                                </DrawingGroup>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Viewbox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="10, 0, 0 ,10">
+            <Button Name="ButtonPlanning" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
 				Click="OnClickButtonPlanning">
-				Запланировать полёт
-			</Button>
-		</StackPanel>
-		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="bottom" HorizontalAlignment="right" Margin="0, 0, 10 ,10">
-			<Button Name="ButtonGraphics" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
+                Запланировать полёт
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="bottom" HorizontalAlignment="right" Margin="0, 0, 10 ,10">
+            <Button Name="ButtonGraphics" Background="#f1f7d7" BorderBrush="Black" BorderThickness="1" Width="400" Height="50"
 				Click="OnClickButtonGraphics">
-				Точные графики
-			</Button>
-		</StackPanel>
+                Точные графики
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
