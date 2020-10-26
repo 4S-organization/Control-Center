@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InteractiveDataDisplay.WPF;
 using Microsoft.Maps.MapControl.WPF;
+using System.IO.Ports;
 
 namespace ControlCenter
 {
@@ -22,6 +23,8 @@ namespace ControlCenter
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        SerialPort serialPort = new SerialPort();
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +43,7 @@ namespace ControlCenter
                 lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
             }
             addNewlabel();
+            ArduinoPort();
         }
         private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
         {
@@ -61,6 +65,21 @@ namespace ControlCenter
                 new Location(58.010259, 56.234195)};
 
             RocketLocationMap.Children.Add(polyline);
+        }
+
+        private void ArduinoPort()
+        {
+            try
+            {
+                serialPort.PortName = "COM4";
+                serialPort.BaudRate = 9600;
+                serialPort.Open();
+                ConnectionStatus.Text = "Статус подключения: подключено";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please give a valid port number or check your connection");
+            }
         }
     }
 

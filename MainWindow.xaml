@@ -44,7 +44,7 @@
             <Grid Name="lines"/>
         </d3:Chart>
         <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="top" HorizontalAlignment="left" Orientation="Horizontal">
-            <Label x:Name="ConnectionStatus" FontSize="30" FontWeight="DemiBold" VerticalAlignment="Center">Статус подключения:</Label>
+            <TextBlock x:Name="ConnectionStatus" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center">Статус подключения: Не подключено</TextBlock>
             <Viewbox HorizontalAlignment="Right" VerticalAlignment="Center" Width="32" Height="32" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
                 <Rectangle Width="16" Height="16">
                     <Rectangle.Fill>
