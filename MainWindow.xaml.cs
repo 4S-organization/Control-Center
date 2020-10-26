@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using InteractiveDataDisplay.WPF;
 using Microsoft.Maps.MapControl.WPF;
 using System.IO.Ports;
+using System.Diagnostics;
 
 namespace ControlCenter
 {
@@ -24,7 +25,8 @@ namespace ControlCenter
     public partial class MainWindow : Window
     {
 
-        SerialPort serialPort = new SerialPort();
+        SerialPort serialPort;
+        bool connected;
         public MainWindow()
         {
             InitializeComponent();
@@ -69,14 +71,49 @@ namespace ControlCenter
 
         private void ArduinoPort()
         {
-            try
+            string[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports)
             {
-                serialPort.PortName = "COM4";
-                serialPort.BaudRate = 9600;
-                serialPort.Open();
+                if (connected) continue;
+                Task tsk = Task.Run(() =>
+                  {
+                      try
+                      {
+                          serialPort = new SerialPort();
+                          serialPort.PortName = port;
+                          serialPort.BaudRate = 9600;
+                          serialPort.Open();
+                          string textToFind = "Four Slaves";
+                          bool found = false;
+                          string input = "";
+                          while (!found)
+                          {
+                              input += serialPort.ReadLine();
+                              found = input.Contains(textToFind);
+                          }
+                          serialPort.WriteLine("okconnected");
+                          connected = true;
+                      }
+                      catch (Exception error)
+                      {
+
+                      }
+                  });
+                if (tsk.Wait(TimeSpan.FromSeconds(2)))
+                {
+                    Debug.Print($"port {port} success");
+                }
+                else
+                {
+                    Debug.Print($"port {port} failed");
+                    tsk = null;
+                }
+            }
+            if (connected)
+            {
                 ConnectionStatus.Text = "Статус подключения: подключено";
             }
-            catch (Exception)
+            else
             {
                 MessageBox.Show("Please give a valid port number or check your connection");
             }
