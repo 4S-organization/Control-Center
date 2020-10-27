@@ -46,6 +46,7 @@ namespace ControlCenter
             }
             addNewlabel();
             ArduinoPort();
+            Task.Run(MainLoop);
         }
         private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
         {
@@ -116,6 +117,56 @@ namespace ControlCenter
             else
             {
                 MessageBox.Show("Please give a valid port number or check your connection");
+            }
+        }
+        void checkConnected()
+        {
+            if (!serialPort.IsOpen)
+            {
+                connected = false;
+                return;
+            }
+            Task tsk = Task.Run(() =>
+            {
+                try
+                {
+                    string textToFind = "i here";
+                    bool found = false;
+                    string input = "";
+                    while (!found)
+                    {
+                        input += serialPort.ReadLine();
+                        found = input.Contains(textToFind);
+                    }
+                    connected = true;
+                    serialPort.WriteLine("ok, this not readed"); // this not readed
+                }
+                catch (Exception error)
+                {
+
+                }
+            });
+            if (tsk.Wait(TimeSpan.FromSeconds(5)))
+            {
+            }
+            else
+            {
+                tsk = null;
+                connected = false;
+            }
+        }
+        void MainLoop()
+        {
+            while (true)
+            {
+                if (serialPort != null)
+                {
+                    checkConnected();
+                    if (!connected)
+                    {
+                        Debug.Print("connection to ardu lost");
+                    }
+                }
             }
         }
     }
