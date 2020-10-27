@@ -45,7 +45,6 @@ namespace ControlCenter
                 lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
             }
             addNewlabel();
-            ArduinoPort();
             Task.Run(MainLoop);
         }
         private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
@@ -70,7 +69,7 @@ namespace ControlCenter
             RocketLocationMap.Children.Add(polyline);
         }
 
-        private void ArduinoPort()
+        private void ArduinoPort(object sender, RoutedEventArgs e)
         {
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports)

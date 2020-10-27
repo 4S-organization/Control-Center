@@ -45,6 +45,7 @@
         </d3:Chart>
         <StackPanel Grid.Column="0" Grid.Row="3">
             <StackPanel VerticalAlignment="top" HorizontalAlignment="left" Orientation="Horizontal">
+                <Button Name="CheckArduinoPort" Background="#f1f7d7" Height="30" Width="60" FontSize="8" Click="ArduinoPort">Подключиться</Button>
                 <TextBlock x:Name="ConnectionStatus" FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center">Статус подключения к Arduino: Не подключено</TextBlock>
                 <Viewbox HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
                     <Rectangle Width="16" Height="16">
