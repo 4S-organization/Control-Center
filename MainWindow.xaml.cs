@@ -69,7 +69,7 @@ namespace ControlCenter
             RocketLocationMap.Children.Add(polyline);
         }
 
-        private void ArduinoPort(object sender, RoutedEventArgs e)
+        private void ArduinoPort(object sender, RoutedEventArgs e )
         {
             string[] ports = SerialPort.GetPortNames();
             foreach (string port in ports)
@@ -111,11 +111,11 @@ namespace ControlCenter
             }
             if (connected)
             {
-                ConnectionStatus.Text = "Статус подключения: подключено";
+                ConnectionStatus.Text = "Статус подключения к Arduino: подключено";
             }
             else
             {
-                MessageBox.Show("Please give a valid port number or check your connection");
+                ConnectionStatus.Text = "Статус подключения к Arduino: Не подключено";
             }
         }
         void checkConnected()
