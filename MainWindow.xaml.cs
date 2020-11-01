@@ -16,6 +16,7 @@ using InteractiveDataDisplay.WPF;
 using Microsoft.Maps.MapControl.WPF;
 using System.IO.Ports;
 using System.Diagnostics;
+using Control_Center;
 
 namespace ControlCenter
 {
@@ -49,7 +50,9 @@ namespace ControlCenter
         }
         private void OnClickButtonPlanning(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Кнопка была нажата!");
+            FlightPlanning flightPlanning = new FlightPlanning();
+
+            flightPlanning.ShowDialog();
         }
 
         private void OnClickButtonGraphics(object sender, RoutedEventArgs e)
